@@ -85,20 +85,15 @@ public class MainActivity extends AppCompatActivity {
     public void test_data(String link){
         Log.e("---------------------" , "Kết nối đến link ");
         try {
-//          kiểm tra link đúng hay sai
             URL url = new URL(link);
-//          Mở kết nối
             HttpURLConnection urlConnection =
                     (HttpURLConnection) url.openConnection();
-//          lấy data vào qua inputStream ( một đối tượng cho phép đọc )
             InputStream inputStream = urlConnection.getInputStream();
-//          Dùng các đối tượng sau để xử lí file hoặc dữ liệu kiểu xml
             XmlPullParserFactory xmlPullParserFactory = XmlPullParserFactory.newInstance();
             xmlPullParserFactory.setNamespaceAware(false);
 
             XmlPullParser xmlPullParser = xmlPullParserFactory.newPullParser();
             xmlPullParser.setInput(inputStream, "utf-8");
-//            lay su kien
             int event = xmlPullParser.getEventType();
 
             Tin_tuc tin_tuc = null;
