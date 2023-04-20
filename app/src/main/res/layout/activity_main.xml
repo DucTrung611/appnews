@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.example.buoi5.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,6 +37,5 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
