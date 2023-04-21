@@ -164,12 +164,12 @@ public class MainActivity extends AppCompatActivity {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         if (mobile_3g.isConnected() || wifi.isConnected()){
 
-            Toast.makeText(getApplicationContext() , "wifi or 3G/4G  Connected",
+            Toast.makeText(getApplicationContext() , "",
                     Toast.LENGTH_SHORT).show();
             show(link_2);
         }else {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Notifycation").setMessage("Vui lòng bật 3G/4G hoặc Wifi để xem được tin tức");
+            builder.setTitle("Notifycation").setMessage("");
             builder.setCancelable(false);
             builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                 @Override
@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
             show(link);
         }else {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Notifycation").setMessage("Vui lòng bật 3G/4G hoặc Wifi để xem được tin tức");
+            builder.setTitle("Notifycation").setMessage("...");
             builder.setCancelable(false);
             builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                 @Override
