@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         if (mobile_3g.isConnected() || wifi.isConnected()){
 
-            Toast.makeText(getApplicationContext() , "wifi or 3G/4G  Connected",
+            Toast.makeText(getApplicationContext() , "...",
                     Toast.LENGTH_SHORT).show();
             show(link);
         }else {
