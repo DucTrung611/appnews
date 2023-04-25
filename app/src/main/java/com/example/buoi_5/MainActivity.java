@@ -85,15 +85,20 @@ public class MainActivity extends AppCompatActivity {
     public void test_data(String link){
         Log.e("---------------------" , "Kết nối đến link ");
         try {
+//          kiểm tra link đúng hay sai
             URL url = new URL(link);
+//          Mở kết nối
             HttpURLConnection urlConnection =
                     (HttpURLConnection) url.openConnection();
+//          lấy data vào qua inputStream ( một đối tượng cho phép đọc )
             InputStream inputStream = urlConnection.getInputStream();
+//          Dùng các đối tượng sau để xử lí file hoặc dữ liệu kiểu xml
             XmlPullParserFactory xmlPullParserFactory = XmlPullParserFactory.newInstance();
             xmlPullParserFactory.setNamespaceAware(false);
 
             XmlPullParser xmlPullParser = xmlPullParserFactory.newPullParser();
             xmlPullParser.setInput(inputStream, "utf-8");
+//            lay su kien
             int event = xmlPullParser.getEventType();
 
             Tin_tuc tin_tuc = null;
@@ -164,12 +169,12 @@ public class MainActivity extends AppCompatActivity {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         if (mobile_3g.isConnected() || wifi.isConnected()){
 
-            Toast.makeText(getApplicationContext() , "",
+            Toast.makeText(getApplicationContext() , "wifi or 3G/4G  Connected",
                     Toast.LENGTH_SHORT).show();
             show(link_2);
         }else {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Notifycation").setMessage("");
+            builder.setTitle("Notifycation").setMessage("Vui lòng bật 3G/4G hoặc Wifi để xem được tin tức");
             builder.setCancelable(false);
             builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                 @Override
@@ -192,12 +197,12 @@ public class MainActivity extends AppCompatActivity {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         if (mobile_3g.isConnected() || wifi.isConnected()){
 
-            Toast.makeText(getApplicationContext() , "...",
+            Toast.makeText(getApplicationContext() , "wifi or 3G/4G  Connected",
                     Toast.LENGTH_SHORT).show();
             show(link);
         }else {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Notifycation").setMessage("...");
+            builder.setTitle("Notifycation").setMessage("Vui lòng bật 3G/4G hoặc Wifi để xem được tin tức");
             builder.setCancelable(false);
             builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                 @Override
