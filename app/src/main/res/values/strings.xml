@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Tin tuc</string>
+    
+    <string-array name="the_loai" >
+        <item > Thời sự VTC </item>
+        <item > Xã hội VTV </item>
+        <item > Tin công nghệ VTV </item>
+        <item > Tin công nghệ VTC </item>
+        <item > Vnexpress khoa học </item>
+        <item > Tư Vấn công nghệ VTV </item>
+        <item > VietNamNet Công nghệ </item>
+    </string-array>
+</resources>
