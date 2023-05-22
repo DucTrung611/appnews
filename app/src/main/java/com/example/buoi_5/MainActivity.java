@@ -52,7 +52,25 @@ public class MainActivity extends AppCompatActivity {
         lv_tin_tuc = findViewById(R.id.lv_tin_tuc);
         the_loai = getResources().getStringArray(R.array.the_loai);
 
+        //share bai bao
+        lv_tin_tuc.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                String link = tin_tucList.get(position).getLink();
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Chia sẻ bài báo");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, link);
+                startActivity(Intent.createChooser(shareIntent, "Chia sẻ bài báo"));
+                return true;
+            }
+        });
+
+
         lv_tin_tuc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -82,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }
+
+
         });
         show_tin_tuc(link , "Thời sự VTC");
     }
